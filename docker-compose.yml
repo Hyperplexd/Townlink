@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  athens-civic-bridge:
+    build: .
+    container_name: athens-civic-bridge-app
+    ports:
+      - "8000:8000"
+      - "5173:5173"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - LLM_PROVIDER=${LLM_PROVIDER}
+      - GEMINI_VISION_MODEL=${GEMINI_VISION_MODEL}
+      - GEMINI_REASONING_MODEL=${GEMINI_REASONING_MODEL}
+      - OPENROUTER_VISION_MODEL=${OPENROUTER_VISION_MODEL}
+      - OPENROUTER_REASONING_MODEL=${OPENROUTER_REASONING_MODEL}
+    restart: unless-stopped

@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 480px at 8% -10%, rgba(10, 77, 130, 0.48), transparent 58%),
+    radial-gradient(820px 420px at 100% 0%, rgba(184, 137, 45, 0.16), transparent 46%),
+    radial-gradient(700px 500px at 80% 110%, rgba(8, 60, 90, 0.35), transparent 50%),
+    #070b12;
+  color: #ebe4d6;
+  font-family: Manrope, system-ui, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(228, 195, 106, 0.35);
+  color: #fff8e8;
+}
+
+.ops-panel {
+  background:
+    linear-gradient(180deg, rgba(22, 32, 52, 0.92), rgba(10, 16, 28, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 50px -36px rgba(0, 0, 0, 0.9);
+}
+
+.phone-shell {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 44px;
+  padding: 12px;
+  background:
+    linear-gradient(165deg, #4a5366 0%, #232936 28%, #121722 70%, #0c1018 100%);
+  box-shadow:
+    0 36px 70px -28px rgba(0, 0, 0, 0.78),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.phone-shell::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 38px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.phone-island {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  z-index: 5;
+  width: 104px;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #07090d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.phone-screen {
+  position: relative;
+  display: flex;
+  min-height: 680px;
+  max-height: 760px;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 34px;
+  background: #f4efe6;
+  color: #162033;
+}
+
+.phone-scroll {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 56, 101, 0.35) transparent;
+}
+
+.receipt-paper {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 245, 0.4), transparent 18px),
+    repeating-linear-gradient(
+      90deg,
+      #f7f3ea 0 10px,
+      #fffdf8 10px 20px
+    );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+@keyframes agent-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(228, 195, 106, 0.45); }
+  100% { box-shadow: 0 0 0 8px rgba(228, 195, 106, 0); }
+}
+
+.agent-running {
+  animation: agent-pulse 1.5s ease-out infinite;
+}
+
+@keyframes scan-line {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.vision-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e4c36a, transparent);
+  animation: scan-line 2.2s linear infinite;
+  box-shadow: 0 0 18px rgba(228, 195, 106, 0.7);
+}
+
+.leaflet-container {
+  background: #0c1220;
+  font-family: Manrope, sans-serif;
+  border-radius: 1rem;
+}
+
+.leaflet-container img {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.leaflet-div-icon.civic-pin {
+  background: transparent;
+  border: none;
+}
+
+.civic-pin-dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 3px;
+  border-radius: 999px;
+  background: var(--pin, #38bdf8);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--pin, #38bdf8) 35%, transparent),
+    0 6px 14px rgba(0, 0, 0, 0.45);
+}
+
+.civic-pin-dot.is-selected {
+  width: 18px;
+  height: 18px;
+  margin: 2px;
+  box-shadow:
+    0 0 0 5px rgba(228, 195, 106, 0.45),
+    0 0 0 8px color-mix(in srgb, var(--pin, #38bdf8) 40%, transparent);
+}
+
+.leaflet-control-attribution {
+  background: rgba(7, 11, 18, 0.72) !important;
+  color: #b7c0ce !important;
+  font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #e4c36a !important;
+}
+
+.leaflet-bar a {
+  background: #141c2e !important;
+  color: #f3e2b0 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #10192b;
+  color: #f4efe6;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px;
+  font-family: Manrope, sans-serif;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+@media (min-width: 1280px) {
+  .studio-stage .phone-shell {
+    display: flex;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 36px;
+  }
+
+  .studio-stage .phone-screen {
+    min-height: 0;
+    max-height: none;
+    flex: 1 1 auto;
+    border-radius: 28px;
+  }
+
+  .studio-stage .phone-island {
+    top: 14px;
+    width: 88px;
+    height: 18px;
+  }
+}
+
+.studio-stage {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agent-running,
+  .vision-scan {
+    animation: none;
+  }
+}
